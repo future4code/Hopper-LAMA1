@@ -1,0 +1,32 @@
+### SIGNUP
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+  "email" : "teste@teste2.com",
+  "name" : "teste2",
+  "password" : "teste2",
+  "role" : "NoRmAl"
+}
+
+### LOGIN
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+  "email" : "teste@teste.com",
+  "password" : "teste"
+}
+
+### Create Band
+
+POST http://localhost:3000/band/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0ZjkzMGY2LWE4NWEtNDU4Mi05MjBkLWMwMTJkNzY4MDc2MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2OTUxMTA4MCwiZXhwIjoxNjY5NTk3NDgwfQ.8vQ_BRzAmFkluNj69PFPOQYLpKkeK_ZzzUwF2raKg0A
+
+{
+  "name" : "Chiclete com Banana",
+  "music_genre" : "Axé",
+  "responsible" : "Bell Marques"
+}
