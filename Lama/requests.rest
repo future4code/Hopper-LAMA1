@@ -30,3 +30,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0ZjkzMGY2LWE4NWEt
   "music_genre" : "Axé",
   "responsible" : "Bell Marques"
 }
+
+### SEARCH BAND
+
+GET http://localhost:3000/band/search?id=3e317b47-371d-4489-b9b2-ca042d6e8e7f&name=chi
