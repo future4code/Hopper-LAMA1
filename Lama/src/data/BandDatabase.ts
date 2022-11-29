@@ -22,4 +22,30 @@ export class BandDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
+
+  public async getBandByName(name: string) {
+    try {
+      const result = await this.getConnection()
+        .select()
+        .where("name", "like", `%${name}%`)
+        .into(BandDatabase.TABLE_NAME)
+        
+      return result
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
+  public async getBandById(id: string) {
+    try {
+      const result = await this.getConnection()
+      .select()
+      .where({id})
+      .into(BandDatabase.TABLE_NAME)
+
+      return result
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
 }

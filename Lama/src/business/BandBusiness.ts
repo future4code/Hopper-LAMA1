@@ -1,6 +1,6 @@
 import { BandDatabase } from "../data/BandDatabase";
-import { BaseError, Unauthorized } from "../error/BaseError";
-import { BandInputDTO } from "../model/Band";
+import { BaseError, EmptyFields, Unauthorized } from "../error/BaseError";
+import { BandInputDTO, BandInputInfoDTO } from "../model/Band";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 
@@ -14,6 +14,10 @@ export class BandBusiness {
         throw new Unauthorized();
       };
 
+      if(!band.name || !band.music_genre || !band.responsible) {
+        throw new EmptyFields();
+      }
+
       const idGenerator = new IdGenerator();
       const id = idGenerator.generate();
 
@@ -24,4 +28,26 @@ export class BandBusiness {
       throw new BaseError(400, error.message);
     };
   };
+
+  async getBand(input: BandInputInfoDTO) {
+    try {
+
+      if(!input.id && !input.name) {
+        throw new EmptyFields();
+      }
+
+      if(input.id) {
+        const bandDatabase = new BandDatabase();
+        return await bandDatabase.getBandById(input.id)
+      }
+
+      if(input.name) {
+        const bandDatabase = new BandDatabase();
+        return await bandDatabase.getBandByName(input.name)
+      }
+
+    } catch (error: any) {
+      throw new BaseError(400, error.message);
+    };
+  }
 };

@@ -44,3 +44,8 @@ export interface BandInputDTO{
   music_genre: string;
   responsible: string;
 }
+
+export interface BandInputInfoDTO {
+  id?: string;
+  name?: string;
+}
