@@ -33,4 +33,33 @@ export class Unauthorized extends BaseError {
     super(401, "Usuário não autorizado.")
   }
 }
-  
+
+export class BandNotFound extends BaseError {
+  constructor(){
+    super(404, "Banda não encontrado!")
+  }
+}
+
+export class InvalidDate extends BaseError {
+  constructor(){
+    super(412, "As datas disponíveis são Sexta,Sabado e Domingo!")
+  }
+}
+
+export class UnavailableTime extends BaseError {
+  constructor(){
+    super(412, "Os horários disponiveis são das 08h as 23h")
+  }
+}
+
+export class ShowAlreadyExists extends BaseError {
+  constructor(){
+    super(409, "Registro de show em horário já existente.")
+  }
+}
+
+export class ShowsNotFound extends BaseError {
+  constructor(){
+    super(404, "Registro de shows não encontrados.")
+  }
+}

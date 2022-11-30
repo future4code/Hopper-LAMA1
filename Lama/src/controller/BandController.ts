@@ -35,8 +35,6 @@ export class BandController {
       const bandBusiness = new BandBusiness();
       const band = await bandBusiness.getBand(input)
 
-      console.log(band)
-
       res.status(200).send({ band });
 
     } catch (error: any) {
